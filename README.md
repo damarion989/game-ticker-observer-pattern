@@ -21,4 +21,14 @@ On every iteration, it calls the method .update() on the current element of the 
 Look for a person in the list. The variable in the loop is declared as an Observer, 
 GameTicker doesn't need to know as a specific class, 
 whether it be a MobilePushNotification.update(), a 
-Whatever object it is, StadiumDisplay is a social media bot.StadiumDisplay, or a SocialMediaBot — it only knows that it is a bot for social media. 
+Whatever object it is, StadiumDisplay is a social media bot.StadiumDisplay, or a SocialMediaBot.
+
+## Phase 4 
+
+I'm using the Pull method here rather than Push. My Observer interface's 
+update() method takes no parameters, which means GameTicker cannot hand 
+data directly to the observers when it notifies them — it can only tell 
+them that something happened. To actually get the data, each observer 
+class (MobilePushNotification, StadiumDisplay, and SocialMediaBot) holds 
+its own reference to the GameTicker it's watching, passed in through its 
+constructor.
