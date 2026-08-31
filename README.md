@@ -32,3 +32,13 @@ them that something happened. To actually get the data, each observer
 class (MobilePushNotification, StadiumDisplay, and SocialMediaBot) holds 
 its own reference to the GameTicker it's watching, passed in through its 
 constructor.
+
+## Phase 5 
+I'm using Pull, where the Subject just signals a change and each 
+observer reaches back to get the data it needs, rather than Push, where 
+the Subject sends the data directly. Switching to Push would mean 
+changing update() to take a parameter, having notifyObservers() pass 
+the latest update into that parameter, and removing the GameTicker 
+reference from each observer since they wouldn't need to look anything 
+up anymore.
+
